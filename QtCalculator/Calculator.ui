@@ -16,11 +16,20 @@
     <height>800</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <family>Segoe UI</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #21252b;
+color: #ffffff;</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="closeButton">
     <property name="geometry">
      <rect>
       <x>940</x>
@@ -36,7 +45,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-style: none</string>
+     <string notr="true">border-style: none;</string>
     </property>
     <property name="text">
      <string>×</string>
@@ -45,7 +54,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="minimizeButton">
     <property name="geometry">
      <rect>
       <x>890</x>
@@ -61,13 +70,34 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-style: none</string>
+     <string notr="true">border-style: none;</string>
     </property>
     <property name="text">
      <string>_</string>
     </property>
     <property name="flat">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="captionLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Calculator</string>
     </property>
    </widget>
   </widget>
