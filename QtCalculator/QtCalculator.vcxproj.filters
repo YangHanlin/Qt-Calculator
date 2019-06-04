@@ -24,7 +24,7 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="Resource Files\Header Files">
+    <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Calculator.h">
-      <Filter>Resource Files\Header Files</Filter>
+      <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
 </Project>
