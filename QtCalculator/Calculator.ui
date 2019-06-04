@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>940</x>
       <y>10</y>
       <width>41</width>
       <height>41</height>
@@ -35,17 +35,20 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-style: none</string>
+    </property>
     <property name="text">
-     <string>x</string>
+     <string>×</string>
     </property>
     <property name="flat">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>690</x>
+      <x>890</x>
       <y>10</y>
       <width>41</width>
       <height>41</height>
@@ -57,11 +60,14 @@
       <pointsize>12</pointsize>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border-style: none</string>
+    </property>
     <property name="text">
      <string>_</string>
     </property>
     <property name="flat">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
