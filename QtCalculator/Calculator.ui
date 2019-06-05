@@ -650,7 +650,7 @@ QLineEdit {
      <string>Message N/A</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opNotButton_2">
+   <widget class="QPushButton" name="opLeftBracketButton">
     <property name="geometry">
      <rect>
       <x>336</x>
@@ -672,7 +672,7 @@ QLineEdit {
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="opNotButton_3">
+   <widget class="QPushButton" name="opRightBracketButton">
     <property name="geometry">
      <rect>
       <x>438</x>
@@ -702,6 +702,8 @@ QLineEdit {
   <tabstop>opAndButton</tabstop>
   <tabstop>opOrButton</tabstop>
   <tabstop>opNotButton</tabstop>
+  <tabstop>opLeftBracketButton</tabstop>
+  <tabstop>opRightBracketButton</tabstop>
   <tabstop>opDivideButton</tabstop>
   <tabstop>num7Button</tabstop>
   <tabstop>num8Button</tabstop>
