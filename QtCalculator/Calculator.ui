@@ -225,7 +225,7 @@ QPushButton[flat=true]#closeButton:pressed {
      </font>
     </property>
     <property name="text">
-     <string>Bksp</string>
+     <string>←</string>
     </property>
     <property name="flat">
      <bool>true</bool>
@@ -577,7 +577,7 @@ QPushButton[flat=true]#closeButton:pressed {
      </font>
     </property>
     <property name="text">
-     <string>*</string>
+     <string>×</string>
     </property>
     <property name="flat">
      <bool>true</bool>
@@ -599,7 +599,7 @@ QPushButton[flat=true]#closeButton:pressed {
      </font>
     </property>
     <property name="text">
-     <string>/</string>
+     <string>÷</string>
     </property>
     <property name="flat">
      <bool>true</bool>
