@@ -18,4 +18,4 @@ This is a simple calculator based on Qt.
 
 1. Download/clone all files in this repository to your computer;
 2. Open the solution file `QtCalculator.sln` with Visual Studio;
-3. Click `Debug > Start Debugging` or press `F5` to build & run.
+3. Select `Debug > Start Debugging` or press `F5` to build & run.
