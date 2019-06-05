@@ -52,9 +52,4 @@
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="main.qss">
-      <Filter>Form Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>

@@ -125,9 +125,6 @@
   <ItemGroup>
     <QtRcc Include="Calculator.qrc" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="main.qss" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
     <Import Project="$(QtMsBuild)\qt.targets" />
