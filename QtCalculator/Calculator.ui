@@ -25,8 +25,7 @@
    <string>Calculator</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #21252b;
-color: #ffffff;</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="closeButton">
@@ -45,13 +44,13 @@ color: #ffffff;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-style: none;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>×</string>
     </property>
     <property name="flat">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="minimizeButton">
@@ -70,13 +69,13 @@ color: #ffffff;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-style: none;</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>_</string>
     </property>
     <property name="flat">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QLabel" name="captionLabel">
@@ -98,6 +97,31 @@ color: #ffffff;</string>
     </property>
     <property name="text">
      <string>Calculator</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>551</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>N/A</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
   </widget>
