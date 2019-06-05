@@ -148,7 +148,7 @@ QPushButton[flat=true]#closeButton:hover {
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="actionClearButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -157,11 +157,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>C</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="num0Button">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -170,11 +179,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>0</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="actionBkspButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -183,11 +201,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Bksp</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="opEqualButton">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -196,11 +223,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>=</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="num1Button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -209,11 +245,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>1</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="num2Button">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -222,11 +267,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>2</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="num3Button">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -235,11 +289,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>3</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="opPlusButton">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -248,11 +311,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>+</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="opMinusButton">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -261,11 +333,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>-</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_10">
+   <widget class="QPushButton" name="num6Button">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -274,11 +355,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>6</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
+   <widget class="QPushButton" name="num5Button">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -287,11 +377,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>5</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_12">
+   <widget class="QPushButton" name="num4Button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -300,11 +399,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>4</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_13">
+   <widget class="QPushButton" name="num7Button">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -313,11 +421,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>7</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_14">
+   <widget class="QPushButton" name="opAndButton">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -326,11 +443,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>And</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_15">
+   <widget class="QPushButton" name="opOrButton">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -339,11 +465,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Or</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_16">
+   <widget class="QPushButton" name="num8Button">
     <property name="geometry">
      <rect>
       <x>200</x>
@@ -352,11 +487,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>8</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_17">
+   <widget class="QPushButton" name="num9Button">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -365,11 +509,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>9</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_18">
+   <widget class="QPushButton" name="opNotButton">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -378,11 +531,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Not</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_19">
+   <widget class="QPushButton" name="opMultiplyButton">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -391,11 +553,20 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>*</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_20">
+   <widget class="QPushButton" name="opDivideButton">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -404,8 +575,17 @@ QPushButton[flat=true]#closeButton:hover {
       <height>80</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>/</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
