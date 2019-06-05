@@ -5,7 +5,7 @@
 QMainWindow {
     background-color: #21252b;
 }
-s
+
 QPushButton[flat=true] {
     border-style: none;
 }
