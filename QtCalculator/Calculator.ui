@@ -40,14 +40,31 @@ QMainWindow {
 
 QPushButton[flat=true] {
     border-style: none;
+    background-color: #3c4144;
 }
 
 QPushButton[flat=true]:hover {
-    background-color: #282c34
+    background-color: #282c34;
+}
+
+QPushButton[flat=true]#minimizeButton, QPushButton[flat=true]#closeButton {
+    background-color: transparent;
+}
+
+QPushButton[flat=true]#minimizeButton:hover {
+    background-color: #282c34;
 }
 
 QPushButton[flat=true]#closeButton:hover {
     background-color: red;
+}
+
+QPushButton[flat=true]:pressed, QPushButton[flat=true]#minimizeButton:pressed {
+    background-color: #232627;
+}
+
+QPushButton[flat=true]#closeButton:pressed {
+    background-color: #c00000;
 }
 </string>
   </property>
