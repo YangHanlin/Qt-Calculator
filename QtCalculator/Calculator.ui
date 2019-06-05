@@ -24,17 +24,14 @@
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true"/>
-  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="closeButton">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>10</y>
-      <width>41</width>
-      <height>41</height>
+      <x>930</x>
+      <y>20</y>
+      <width>40</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
@@ -56,10 +53,10 @@
    <widget class="QPushButton" name="minimizeButton">
     <property name="geometry">
      <rect>
-      <x>890</x>
-      <y>10</y>
-      <width>41</width>
-      <height>41</height>
+      <x>880</x>
+      <y>20</y>
+      <width>40</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
@@ -81,10 +78,10 @@
    <widget class="QLabel" name="captionLabel">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>20</y>
-      <width>121</width>
-      <height>31</height>
+      <width>120</width>
+      <height>40</height>
      </rect>
     </property>
     <property name="font">
