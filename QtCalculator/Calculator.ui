@@ -601,7 +601,7 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Empty Expression LineEdit</string>
+     <string>Expression N/A</string>
     </property>
     <property name="frame">
      <bool>false</bool>
@@ -626,13 +626,13 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Empty Result Label</string>
+     <string>Result N/A</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="messageLabel">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -647,12 +647,37 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Calculator vx.x. Copyright (C) 2019 Yang Hanlin.</string>
+     <string>Message N/A</string>
     </property>
    </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>expressionLineEdit</tabstop>
+  <tabstop>opAndButton</tabstop>
+  <tabstop>opOrButton</tabstop>
+  <tabstop>opNotButton</tabstop>
+  <tabstop>opDivideButton</tabstop>
+  <tabstop>num7Button</tabstop>
+  <tabstop>num8Button</tabstop>
+  <tabstop>num9Button</tabstop>
+  <tabstop>opMultiplyButton</tabstop>
+  <tabstop>num4Button</tabstop>
+  <tabstop>num5Button</tabstop>
+  <tabstop>num6Button</tabstop>
+  <tabstop>opMinusButton</tabstop>
+  <tabstop>num1Button</tabstop>
+  <tabstop>num2Button</tabstop>
+  <tabstop>num3Button</tabstop>
+  <tabstop>opPlusButton</tabstop>
+  <tabstop>actionClearButton</tabstop>
+  <tabstop>num0Button</tabstop>
+  <tabstop>actionBkspButton</tabstop>
+  <tabstop>opEqualButton</tabstop>
+  <tabstop>minimizeButton</tabstop>
+  <tabstop>closeButton</tabstop>
+ </tabstops>
  <resources>
   <include location="Calculator.qrc"/>
  </resources>
