@@ -11,6 +11,9 @@ public:
 	Calculator(QWidget *parent = Q_NULLPTR);
 
 private slots:
+    void mousePressEvent(QMouseEvent* event);
+    void mouseMoveEvent(QMouseEvent* event);
+
     void on_closeButton_clicked();
     void on_minimizeButton_clicked();
 
