@@ -18,7 +18,6 @@ void Calculator::mouseMoveEvent(QMouseEvent* event) {
         move(pos() + event->pos() - originalPos);
 }
 
-
 void Calculator::on_closeButton_clicked() {
     QApplication::quit();
 }
