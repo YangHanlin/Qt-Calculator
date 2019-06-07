@@ -16,6 +16,8 @@ void Calculator::initWidgets() {
     ui.resultLabel->setText("0");
     emit fetchAboutInfoStr(aboutInfoStr);
     ui.messageLabel->setText(aboutInfoStr);
+    emit fetchOriginalButtonStyle(originalButtonStyle);
+    emit fetchPressedButtonStyle(pressedButtonStyle);
 }
 
 void Calculator::mousePressEvent(QMouseEvent* event) {
