@@ -15,8 +15,6 @@ public:
 signals:
     void fetchCaptionStr(QString& target);
     void fetchAboutInfoStr(QString& target);
-    void fetchOriginalButtonStyle(QString& target);
-    void fetchPressedButtonStyle(QString& target);
 
 private slots:
     void mousePressEvent(QMouseEvent* event);
