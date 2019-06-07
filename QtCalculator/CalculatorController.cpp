@@ -41,9 +41,9 @@ const set<string> validOperatorCombinations = {
 
 void neaten(string& expr);
 void validate(const string& expr);
-int operate(int a, char op, int b);
+long long operate(long long a, char op, long long b);
 
-int evalIntegerExpr(string expr) {
+long long evalIntegerExpr(string expr) {
     neaten(expr);
     try {
         validate(expr);
@@ -51,8 +51,8 @@ int evalIntegerExpr(string expr) {
         throw;
     }
     stack<char> operators;
-    stack<int> operands;
-    int currentOperand = 0;
+    stack<long long> operands;
+    long long currentOperand = 0;
     bool insideOperand = false;
     char lastOperator = '\0';
     for (string::iterator iter = expr.begin(); iter != expr.end(); ++iter) {
@@ -80,9 +80,9 @@ int evalIntegerExpr(string expr) {
                 operators.pop();
                 if (op == '(' && currentCharacter == ')')
                     break;
-                int b = operands.top();
+                long long b = operands.top();
                 operands.pop();
-                int a = operands.top();
+                long long a = operands.top();
                 operands.pop();
                 operands.push(operate(a, op, b));
                 if (operators.empty())
@@ -101,9 +101,9 @@ int evalIntegerExpr(string expr) {
         insideOperand = false;
     }
     while (!operators.empty()) {
-        int b = operands.top();
+        long long b = operands.top();
         operands.pop();
-        int a = operands.top();
+        long long a = operands.top();
         operands.pop();
         char op = operators.top();
         operands.push(operate(a, op, b));
@@ -176,7 +176,7 @@ void validate(const string& expr) {
     return;
 }
 
-int operate(int a, char op, int b) {
+long long operate(long long a, char op, long long b) {
     switch (op) {
     case '+':
         return a + b;
