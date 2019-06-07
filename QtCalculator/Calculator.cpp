@@ -7,7 +7,7 @@
 #include <QMap>
 #include <QPushButton>
 
-#include <QDebug>
+// #include <QDebug>
 
 QPoint originalPos;
 QMap<int, QPushButton*> keyToButton;
