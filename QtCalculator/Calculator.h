@@ -46,6 +46,7 @@ private slots:
     void on_opEqualButton_clicked();
     void on_actionBkspButton_clicked();
     void on_actionClearButton_clicked();
+    void on_expressionLineEdit_textChanged(const QString& text);
 
 private:
 	Ui::CalculatorClass ui;

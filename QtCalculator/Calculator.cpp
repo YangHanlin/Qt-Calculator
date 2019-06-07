@@ -140,6 +140,8 @@ void Calculator::on_opRightBracketButton_clicked() {
 }
 
 void Calculator::on_opEqualButton_clicked() {
+    if (ui.expressionLineEdit->text().isEmpty())
+        return;
     CalculationResult res;
     emit fetchCalculationResult(ui.expressionLineEdit->text(), res);
     if (res.status == 0) {
@@ -153,7 +155,7 @@ void Calculator::on_opEqualButton_clicked() {
 
 void Calculator::on_actionBkspButton_clicked() {
     int currentCursorPosition = ui.expressionLineEdit->cursorPosition();
-    if (currentCursorPosition != 0) {
+    if (currentCursorPosition > 0) {
         ui.expressionLineEdit->setText(ui.expressionLineEdit->text().remove(currentCursorPosition - 1, 1));
         ui.expressionLineEdit->setCursorPosition(currentCursorPosition - 1);
     }
@@ -162,6 +164,20 @@ void Calculator::on_actionBkspButton_clicked() {
 void Calculator::on_actionClearButton_clicked() {
     ui.expressionLineEdit->setText("");
     ui.resultLabel->setText("0");
+}
+
+void Calculator::on_expressionLineEdit_textChanged(const QString& text) {
+    if (status != 0) {
+        ui.resultLabel->setText("0");
+        ui.messageLabel->setText(aboutInfoStr);
+        status = 0;
+    }
+    int currentCursorPosition = ui.expressionLineEdit->cursorPosition();
+    if (currentCursorPosition > 0 && ui.expressionLineEdit->text().at(currentCursorPosition - 1) == '=') {
+        ui.expressionLineEdit->setText(ui.expressionLineEdit->text().remove(currentCursorPosition - 1, 1));
+        ui.expressionLineEdit->setCursorPosition(currentCursorPosition - 1);
+        ui.opEqualButton->click();
+    }
 }
 
 void Calculator::initKeyToButton(QMap<int, QPushButton*>& target) {
