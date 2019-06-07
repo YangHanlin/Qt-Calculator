@@ -37,8 +37,10 @@ void Calculator::mouseMoveEvent(QMouseEvent* event) {
 void Calculator::keyPressEvent(QKeyEvent* event) {
     int k = event->key();
     QMap<int, QPushButton*>::iterator it = keyToButton.find(k);
-    if (it != keyToButton.end())
+    if (it != keyToButton.end()) {
         setAppearAsPressed(it.value(), true);
+        it.value()->click();
+    }
 }
 
 void Calculator::keyReleaseEvent(QKeyEvent* event) {
