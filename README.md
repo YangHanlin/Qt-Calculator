@@ -6,8 +6,8 @@ This is a simple calculator based on Qt.
 
 ### Dependencies
 
-- Visual Studio (Recommended: Visual Studio 2019+)
-- Qt (Recommended: Qt 5.12.3+)
+- Visual Studio (Recommended: Visual Studio 2019+), with module `Desktop Development with C++` installed
+- Qt (Recommended: Qt 5.12.3
 
 > You may have to install an extension
 > ([Qt VS Tools](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.QtVisualStudioTools2019))
