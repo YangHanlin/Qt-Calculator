@@ -11,6 +11,7 @@ public:
     CalculatorSettings();
 
 public slots:
+    void onProgramNameRequested(QString& target) const;
     void onAboutInfoStrRequested(QString& target) const;
 
 private:

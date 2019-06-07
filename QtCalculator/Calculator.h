@@ -13,6 +13,7 @@ public:
     void initWidgets();
 
 signals:
+    void fetchCaptionStr(QString& target);
     void fetchAboutInfoStr(QString& target);
 
 private slots:

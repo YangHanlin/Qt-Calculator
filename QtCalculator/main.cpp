@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
 	QApplication application(argc, argv);
 	Calculator calculator;
     CalculatorSettings calculatorSettings;
+    QObject::connect(&calculator, SIGNAL(fetchCaptionStr(QString&)), &calculatorSettings, SLOT(onProgramNameRequested(QString&)));
     QObject::connect(&calculator, SIGNAL(fetchAboutInfoStr(QString&)), &calculatorSettings, SLOT(onAboutInfoStrRequested(QString&)));
     calculator.initWidgets();
 	calculator.show();

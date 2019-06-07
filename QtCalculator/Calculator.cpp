@@ -1,4 +1,5 @@
 #include "Calculator.h"
+
 #include <QMouseEvent>
 
 QPoint originalPos;
@@ -9,6 +10,9 @@ Calculator::Calculator(QWidget *parent) : QMainWindow(parent) {
 }
 
 void Calculator::initWidgets() {
+    QString captionStr;
+    emit fetchCaptionStr(captionStr);
+    ui.captionLabel->setText(captionStr);
     ui.expressionLineEdit->setText("");
     ui.resultLabel->setText("0");
     emit fetchAboutInfoStr(aboutInfoStr);
