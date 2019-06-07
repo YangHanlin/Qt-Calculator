@@ -10,8 +10,7 @@ const QString defaultProgramVersion = "0.0";
 CalculatorSettings::CalculatorSettings()
     : author(defaultAuthor),
       programName(defaultProgramName),
-      programVersion(defaultProgramVersion)
-{}
+      programVersion(defaultProgramVersion) {}
 
 void CalculatorSettings::onProgramNameRequested(QString& target) const {
     target = programName;

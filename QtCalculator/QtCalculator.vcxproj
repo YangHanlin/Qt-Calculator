@@ -113,6 +113,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CalculationResult.cpp" />
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CalculatorSettngs.cpp" />
     <ClCompile Include="main.cpp" />
@@ -134,6 +135,7 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CalculationResult.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
