@@ -25,4 +25,5 @@ private slots:
 private:
 	Ui::CalculatorClass ui;
     QString aboutInfoStr;
+    QString captionStr;
 };

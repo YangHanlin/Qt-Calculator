@@ -10,7 +10,6 @@ Calculator::Calculator(QWidget *parent) : QMainWindow(parent) {
 }
 
 void Calculator::initWidgets() {
-    QString captionStr;
     emit fetchCaptionStr(captionStr);
     ui.captionLabel->setText(captionStr);
     ui.expressionLineEdit->setText("");
