@@ -115,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="CalculationResult.cpp" />
     <ClCompile Include="Calculator.cpp" />
+    <ClCompile Include="CalculatorController.cpp" />
     <ClCompile Include="CalculatorSettngs.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="util.cpp" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationResult.h" />
+    <ClInclude Include="CalculatorController.h" />
     <ClInclude Include="util.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
