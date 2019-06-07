@@ -8,6 +8,13 @@ Calculator::Calculator(QWidget *parent) : QMainWindow(parent) {
 	QWidget::setWindowFlags(Qt::FramelessWindowHint);
 }
 
+void Calculator::initWidgets() {
+    ui.expressionLineEdit->setText("");
+    ui.resultLabel->setText("0");
+    emit fetchAboutInfoStr(aboutInfoStr);
+    ui.messageLabel->setText(aboutInfoStr);
+}
+
 void Calculator::mousePressEvent(QMouseEvent* event) {
     if (event->buttons() & Qt::LeftButton)
         originalPos = event->pos();
