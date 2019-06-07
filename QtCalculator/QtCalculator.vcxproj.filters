@@ -66,15 +66,15 @@
     <QtMoc Include="CalculatorSettings.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="CalculatorController.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalculationResult.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="util.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CalculatorController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
