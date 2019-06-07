@@ -52,6 +52,7 @@ private:
 	Ui::CalculatorClass ui;
     QString aboutInfoStr;
     QString captionStr;
+    QPushButton* lastPressedButton;
     int status;
 
     void mousePressEvent(QMouseEvent* event);

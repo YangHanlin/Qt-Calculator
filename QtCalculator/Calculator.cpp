@@ -12,8 +12,9 @@
 QPoint originalPos;
 QMap<int, QPushButton*> keyToButton;
 
-Calculator::Calculator(QWidget* parent) 
+Calculator::Calculator(QWidget* parent)
     : QMainWindow(parent),
+      lastPressedButton(Q_NULLPTR),
       status(0) {
 	ui.setupUi(this);
 	QWidget::setWindowFlags(Qt::FramelessWindowHint);
@@ -43,6 +44,7 @@ void Calculator::keyPressEvent(QKeyEvent* event) {
     QMap<int, QPushButton*>::iterator it = keyToButton.find(k);
     if (it != keyToButton.end()) {
         setAppearAsPressed(it.value(), true);
+        lastPressedButton = it.value();
         it.value()->click();
     }
 }
@@ -53,6 +55,8 @@ void Calculator::keyReleaseEvent(QKeyEvent* event) {
     QMap<int, QPushButton*>::iterator it = keyToButton.find(k);
     if (it != keyToButton.end())
         setAppearAsPressed(it.value(), false);
+    if (lastPressedButton != Q_NULLPTR)
+        setAppearAsPressed(lastPressedButton, false);
 }
 
 void Calculator::on_closeButton_clicked() {
