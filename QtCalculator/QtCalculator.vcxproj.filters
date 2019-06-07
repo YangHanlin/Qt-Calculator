@@ -39,6 +39,9 @@
     <ClCompile Include="CalculatorSettngs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Calculator.ui">
@@ -57,5 +60,10 @@
     <QtMoc Include="CalculatorSettings.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="util.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

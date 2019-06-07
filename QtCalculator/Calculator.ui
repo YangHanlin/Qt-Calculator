@@ -60,18 +60,17 @@ QPushButton[flat=true]#closeButton:hover {
     background-color: red;
 }
 
-QPushButton[flat=true]:pressed, QPushButton[flat=true]#minimizeButton:pressed {
+QPushButton[flat=true]:pressed, QPushButton[flat=true]#minimizeButton:pressed,
+QPushButton[flat=true][appearAsPressed=true],
+QPushButton[flat=true][appearAsPressed=true]#minimizeButton {
     background-color: #232627;
 }
 
-QPushButton[flat=true]#closeButton:pressed {
+QPushButton[flat=true]#closeButton:pressed,
+QPushButton[flat=true][appearAsPressed=true]#closeButton {
     background-color: #c00000;
 }
-/*
-QLineEdit {
-    border-style: none;
-}
-*/</string>
+</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="closeButton">
@@ -98,6 +97,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="minimizeButton">
     <property name="geometry">
@@ -122,6 +124,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="captionLabel">
@@ -166,6 +171,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="num0Button">
     <property name="geometry">
@@ -187,6 +195,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="actionBkspButton">
@@ -210,6 +221,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opEqualButton">
     <property name="geometry">
@@ -231,6 +245,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="num1Button">
@@ -254,6 +271,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="num2Button">
     <property name="geometry">
@@ -275,6 +295,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="num3Button">
@@ -298,6 +321,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opPlusButton">
     <property name="geometry">
@@ -319,6 +345,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="opMinusButton">
@@ -342,6 +371,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="num6Button">
     <property name="geometry">
@@ -363,6 +395,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="num5Button">
@@ -386,6 +421,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="num4Button">
     <property name="geometry">
@@ -407,6 +445,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="num7Button">
@@ -430,6 +471,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opAndButton">
     <property name="geometry">
@@ -451,6 +495,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="opOrButton">
@@ -474,6 +521,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="num8Button">
     <property name="geometry">
@@ -495,6 +545,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="num9Button">
@@ -518,6 +571,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opNotButton">
     <property name="geometry">
@@ -539,6 +595,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="opMultiplyButton">
@@ -562,6 +621,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opDivideButton">
     <property name="geometry">
@@ -583,6 +645,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLineEdit" name="expressionLineEdit">
@@ -671,6 +736,9 @@ QLineEdit {
     <property name="flat">
      <bool>true</bool>
     </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="opRightBracketButton">
     <property name="geometry">
@@ -692,6 +760,9 @@ QLineEdit {
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+    <property name="appearAsPressed" stdset="0">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
