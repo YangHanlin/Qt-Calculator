@@ -769,7 +769,6 @@ QPushButton[flat=true][appearAsPressed=true]#closeButton {
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
-  <tabstop>expressionLineEdit</tabstop>
   <tabstop>opAndButton</tabstop>
   <tabstop>opOrButton</tabstop>
   <tabstop>opNotButton</tabstop>
@@ -792,6 +791,7 @@ QPushButton[flat=true][appearAsPressed=true]#closeButton {
   <tabstop>num0Button</tabstop>
   <tabstop>actionBkspButton</tabstop>
   <tabstop>opEqualButton</tabstop>
+  <tabstop>expressionLineEdit</tabstop>
   <tabstop>minimizeButton</tabstop>
   <tabstop>closeButton</tabstop>
  </tabstops>
