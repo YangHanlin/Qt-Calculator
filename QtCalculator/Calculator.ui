@@ -601,7 +601,7 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Expression N/A</string>
+     <string>Loading...</string>
     </property>
     <property name="frame">
      <bool>false</bool>
@@ -626,7 +626,7 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Result N/A</string>
+     <string>Loading...</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -647,7 +647,7 @@ QLineEdit {
      </font>
     </property>
     <property name="text">
-     <string>Message N/A</string>
+     <string>Loading...</string>
     </property>
    </widget>
    <widget class="QPushButton" name="opLeftBracketButton">
