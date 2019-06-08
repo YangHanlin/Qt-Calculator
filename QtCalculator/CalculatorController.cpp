@@ -13,6 +13,5 @@ void CalculatorController::calculate(QString expression, CalculationResult& res)
     } catch (const CalculationException& e) {
         res.errorMessage = e.description();
         res.status = 1;
-        // qDebug() << "CalculationException: " << e.description() << ", i.e. " << e.what(); // TODO: Delete this
     }
 }
