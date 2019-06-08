@@ -51,6 +51,9 @@
     <ClCompile Include="CalculationException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="expressions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Calculator.ui">
@@ -81,6 +84,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CalculationException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="expressions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
