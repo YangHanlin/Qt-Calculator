@@ -6,7 +6,6 @@
 class CalculationException : public QException {
 public:
     CalculationException(QString description = "Unknown CalculationException instance");
-    virtual const char* what() const;
     virtual QString description() const;
 private:
     QString desp;

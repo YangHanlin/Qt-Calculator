@@ -6,10 +6,6 @@ CalculationException::CalculationException(QString description)
     : QException(),
       desp(description) {}
 
-const char* CalculationException::what() const {
-    return desp.toStdString().c_str();
-}
-
 QString CalculationException::description() const {
     return desp;
 }
