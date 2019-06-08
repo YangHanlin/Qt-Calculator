@@ -18,25 +18,30 @@ using std::logic_error;
 using std::runtime_error;
 
 const QMap<QChar, int> inStackPriority = {
-    {'+', 2}, {'-', 2},
-    {'*', 3}, {'/', 3}, {'%', 3},
-    {'(', 1}, {')', 4}
+    {'+', 3}, {'-', 3},
+    {'*', 4}, {'/', 4}, {'%', 4},
+    {'&', 2}, {'|', 1}, {'!', 5},
+    {'(', 0}, {')', 6}
 };
 
 const QMap<QChar, int> outOfStackPriority = {
-    {'+', 2}, {'-', 2},
-    {'*', 3}, {'/', 3}, {'%', 3},
-    {'(', 4}, {')', 1}
+    {'+', 3}, {'-', 3},
+    {'*', 4}, {'/', 4}, {'%', 4},
+    {'&', 2}, {'|', 1}, {'!', 5},
+    {'(', 6}, {')', 0}
 };
 
 const set<QString> validOperatorCombinations = {
-    " (", " +", " -",
+    " (", " +", " -", " !",
     "+(",
     "-(",
     "*(",
     "/(",
     "%(",
-    "()", "((", "(+", "(-",
+    "&(",
+    "|(",
+    "!("
+    "()", "((", "(+", "(-", "(!",
     ")+", ")-", ")*", ")/", ")%", "))", ") "
 };
 
@@ -185,6 +190,12 @@ long long operate(long long a, QChar op, long long b) {
         if (b == 0)
             throw CalculationLogicError("Cannot divide by 0");
         return a % b;
+    case '&':
+        return a && b;
+    case '|':
+        return a || b;
+    case '!':
+        return !b;
     default:
         throw CalculationRuntimeError("Unexpected operator \'" + static_cast<QString>(op) + "\' in calculation");
     }
