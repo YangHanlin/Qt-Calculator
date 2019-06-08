@@ -3,28 +3,27 @@
 
 #include <QString>
 #include <QChar>
+#include <QMap>
 
-// #include <QDebug> // TODO: Delete this on release
+#include <QDebug> // TODO: Delete this on release
 
-#include <map>
 #include <set>
 #include <stack>
 #include <stdexcept>
 
-using std::map;
 using std::set;
 using std::stack;
 using std::exception;
 using std::logic_error;
 using std::runtime_error;
 
-const map<QChar, int> inStackPriority = {
+const QMap<QChar, int> inStackPriority = {
     {'+', 2}, {'-', 2},
     {'*', 3}, {'/', 3}, {'%', 3},
     {'(', 1}, {')', 4}
 };
 
-const map<QChar, int> outOfStackPriority = {
+const QMap<QChar, int> outOfStackPriority = {
     {'+', 2}, {'-', 2},
     {'*', 3}, {'/', 3}, {'%', 3},
     {'(', 4}, {')', 1}
@@ -69,13 +68,13 @@ long long evalIntegerExpr(QString expr) {
             currentOperand = 0;
             insideOperand = false;
         }
-        map<QChar, int>::const_iterator currentOutIterator = outOfStackPriority.find(currentCharacter);
+        QMap<QChar, int>::ConstIterator currentOutIterator = outOfStackPriority.find(currentCharacter);
         if (currentOutIterator == outOfStackPriority.end()) { // TODO: Delete the braces
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(currentCharacter) + "\'");
         }
         if (!operators.empty()) {
-            map<QChar, int>::const_iterator currentInIterator = inStackPriority.find(operators.top());
-            while (currentOutIterator->second <= currentInIterator->second) {
+            QMap<QChar, int>::ConstIterator currentInIterator = inStackPriority.find(operators.top());
+            while (currentOutIterator.value() <= currentInIterator.value()) {
                 QChar op = operators.top();
                 operators.pop();
                 if (op == '(' && currentCharacter == ')')
@@ -119,6 +118,11 @@ void neaten(QString& expr) {
         else
             ++i;
     }
+    for (QString::size_type i = 0; i < expr.size(); ++i)
+        if (i + 1 < expr.size() &&
+            ((expr.at(i) == '&' && expr.at(i + 1) == '&') ||
+            (expr.at(i) == '|' && expr.at(i + 1) == '|')))
+            expr.remove(i, 1);
     return;
 }
 
