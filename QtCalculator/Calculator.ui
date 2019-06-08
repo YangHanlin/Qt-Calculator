@@ -791,9 +791,9 @@ QPushButton[flat=true][appearAsPressed=true]#closeButton {
   <tabstop>num0Button</tabstop>
   <tabstop>actionBkspButton</tabstop>
   <tabstop>opEqualButton</tabstop>
-  <tabstop>expressionLineEdit</tabstop>
   <tabstop>minimizeButton</tabstop>
   <tabstop>closeButton</tabstop>
+  <tabstop>expressionLineEdit</tabstop>
  </tabstops>
  <resources>
   <include location="Calculator.qrc"/>
