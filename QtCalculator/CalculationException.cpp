@@ -16,3 +16,6 @@ QString CalculationException::description() const {
 
 CalculationLogicError::CalculationLogicError(QString description)
     : CalculationException(description) {}
+
+CalculationRuntimeError::CalculationRuntimeError(QString description)
+    : CalculationException(description) {}
