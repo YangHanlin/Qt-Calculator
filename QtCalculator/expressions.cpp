@@ -1,3 +1,5 @@
+// FIXME: There are some bugs
+
 #include "expressions.h"
 #include "CalculationException.h"
 
@@ -65,9 +67,8 @@ long long evalIntegerExpr(QString expr) {
             insideOperand = false;
         }
         QMap<QChar, int>::ConstIterator currentOutIterator = outOfStackPriority.find(currentCharacter);
-        if (currentOutIterator == outOfStackPriority.end()) { // TODO: Delete the braces
+        if (currentOutIterator == outOfStackPriority.end())
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(currentCharacter) + "\'");
-        }
         if (!operators.empty()) {
             QMap<QChar, int>::ConstIterator currentInIterator = inStackPriority.find(operators.top());
             while (currentOutIterator.value() <= currentInIterator.value()) {
@@ -107,30 +108,28 @@ long long evalIntegerExpr(QString expr) {
     return operands.top();
 }
 
-void neaten(QString& expr) {
-    for (QString::size_type i = 0; i < expr.size(); ) { // TODO: Delete this brace, if possible
+QString& neaten(QString& expr) {
+    for (QString::size_type i = 0; i < expr.size(); )
         if (expr.at(i).isSpace())
             expr.remove(i, 1);
         else
             ++i;
-    }
     for (QString::size_type i = 0; i < expr.size(); ++i)
         if (i + 1 < expr.size() &&
             ((expr.at(i) == '&' && expr.at(i + 1) == '&') ||
             (expr.at(i) == '|' && expr.at(i + 1) == '|')))
             expr.remove(i, 1);
-    return;
+    return expr;
 }
 
-void validate(const QString& expr) {
+const QString& validate(const QString& expr) {
     if (expr.isEmpty())
         throw CalculationLogicError("Empty expression");
     int bracketValue = 0;
     if (!expr.front().isDigit()) {
         QString combination = " " + static_cast<QString>(expr.front());
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\' at this position");
-        }
         if (expr.front() == '(')
             ++bracketValue;
         else if (expr.front() == ')')
@@ -150,19 +149,17 @@ void validate(const QString& expr) {
         if ((iter - 1)->isDigit())
             continue;
         QString combination = static_cast<QString>(*(iter - 1)) + *iter;
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete this
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
             throw CalculationLogicError("Invalid operator combination \'" + combination + "\'");
-        }
     }
     if (!expr.back().isDigit()) {
         QString combination = static_cast<QString>(expr.back()) + " ";
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete this as well
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[0]) + "\' at this position");
-        }
     }
     if (bracketValue != 0)
         throw CalculationLogicError("Unmatched brackets");
-    return;
+    return expr;
 }
 
 long long operate(long long a, QChar op, long long b) {

@@ -6,9 +6,7 @@
 
 void CalculatorController::calculate(QString expression, CalculationResult& res) {
     try {
-        neaten(expression);
-        validate(expression);
-        res.result = evalIntegerExpr(expression);
+        res.result = evalIntegerExpr(validate(neaten(expression)));
         res.status = 0;
     } catch (const CalculationException& e) {
         res.errorMessage = e.description();
