@@ -153,7 +153,7 @@ void Calculator::on_opEqualButton_clicked() {
     } else {
         ui.resultLabel->setText("Error");
         ui.messageLabel->setText(res.errorMessage);
-        status = 1;
+        status = res.status;
     }
 }
 
