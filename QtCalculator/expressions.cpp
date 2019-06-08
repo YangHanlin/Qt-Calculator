@@ -4,14 +4,13 @@
 #include <QString>
 #include <QChar>
 #include <QMap>
+#include <QSet>
 
 #include <QDebug> // TODO: Delete this on release
 
-#include <set>
 #include <stack>
 #include <stdexcept>
 
-using std::set;
 using std::stack;
 using std::exception;
 using std::logic_error;
@@ -31,7 +30,7 @@ const QMap<QChar, int> outOfStackPriority = {
     {'(', 6}, {')', 0}
 };
 
-const set<QString> validOperatorCombinations = {
+const QSet<QString> validOperatorCombinations = {
     " (", " +", " -", " !",
     "+(",
     "-(",
@@ -45,17 +44,9 @@ const set<QString> validOperatorCombinations = {
     ")+", ")-", ")*", ")/", ")%", "))", ") "
 };
 
-void neaten(QString& expr);
-void validate(const QString& expr);
 long long operate(long long a, QChar op, long long b);
 
 long long evalIntegerExpr(QString expr) {
-    neaten(expr);
-    try {
-        validate(expr);
-    } catch (const exception& e) {
-        throw;
-    }
     stack<QChar> operators;
     stack<long long> operands;
     long long currentOperand = 0;
