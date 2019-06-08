@@ -7,16 +7,9 @@
 #include <QChar>
 #include <QMap>
 #include <QSet>
+#include <QStack>
 
 #include <QDebug> // TODO: Delete this on release
-
-#include <stack>
-#include <stdexcept>
-
-using std::stack;
-using std::exception;
-using std::logic_error;
-using std::runtime_error;
 
 const QMap<QChar, int> inStackPriority = {
     {'+', 3}, {'-', 3},
@@ -49,8 +42,8 @@ const QSet<QString> validOperatorCombinations = {
 long long operate(long long a, QChar op, long long b);
 
 long long evalIntegerExpr(QString expr) {
-    stack<QChar> operators;
-    stack<long long> operands;
+    QStack<QChar> operators;
+    QStack<long long> operands;
     long long currentOperand = 0;
     bool insideOperand = false;
     QChar lastOperator = '\0';
@@ -145,7 +138,7 @@ const QString& validate(const QString& expr) {
         else if (*iter == ')')
             --bracketValue;
         if (bracketValue < 0)
-            throw logic_error("Unmatched brackets");
+            throw CalculationLogicError("Unmatched brackets");
         if ((iter - 1)->isDigit())
             continue;
         QString combination = static_cast<QString>(*(iter - 1)) + *iter;
