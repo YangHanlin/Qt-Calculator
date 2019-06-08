@@ -113,6 +113,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CalculationException.cpp" />
     <ClCompile Include="CalculationResult.cpp" />
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CalculatorController.cpp" />
@@ -136,6 +137,7 @@
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CalculationException.h" />
     <ClInclude Include="CalculationResult.h" />
     <QtMoc Include="CalculatorController.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>

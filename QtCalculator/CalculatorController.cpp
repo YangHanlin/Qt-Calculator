@@ -2,13 +2,18 @@
 
 // Expression.cpp -- START
 
-#include <string>
+#include "CalculationException.h"
+
+#include <QString>
+#include <QChar>
+
+// #include <QDebug> // TODO: Delete this on release
+
 #include <map>
 #include <set>
 #include <stack>
 #include <stdexcept>
 
-using std::string;
 using std::map;
 using std::set;
 using std::stack;
@@ -16,19 +21,19 @@ using std::exception;
 using std::logic_error;
 using std::runtime_error;
 
-const map<char, int> inStackPriority = {
+const map<QChar, int> inStackPriority = {
     {'+', 2}, {'-', 2},
     {'*', 3}, {'/', 3}, {'%', 3},
     {'(', 1}, {')', 4}
 };
 
-const map<char, int> outOfStackPriority = {
+const map<QChar, int> outOfStackPriority = {
     {'+', 2}, {'-', 2},
     {'*', 3}, {'/', 3}, {'%', 3},
     {'(', 4}, {')', 1}
 };
 
-const set<string> validOperatorCombinations = {
+const set<QString> validOperatorCombinations = {
     " (", " +", " -",
     "+(",
     "-(",
@@ -39,26 +44,26 @@ const set<string> validOperatorCombinations = {
     ")+", ")-", ")*", ")/", ")%", "))", ") "
 };
 
-void neaten(string& expr);
-void validate(const string& expr);
-long long operate(long long a, char op, long long b);
+void neaten(QString& expr);
+void validate(const QString& expr);
+long long operate(long long a, QChar op, long long b);
 
-long long evalIntegerExpr(string expr) {
+long long evalIntegerExpr(QString expr) {
     neaten(expr);
     try {
         validate(expr);
     } catch (const exception& e) {
         throw;
     }
-    stack<char> operators;
+    stack<QChar> operators;
     stack<long long> operands;
     long long currentOperand = 0;
     bool insideOperand = false;
-    char lastOperator = '\0';
-    for (string::iterator iter = expr.begin(); iter != expr.end(); ++iter) {
-        char currentCharacter = *iter;
-        if (isdigit(currentCharacter)) {
-            currentOperand = currentOperand * 10 + (currentCharacter - '0');
+    QChar lastOperator = '\0';
+    for (QString::Iterator iter = expr.begin(); iter != expr.end(); ++iter) {
+        QChar currentCharacter = *iter;
+        if (currentCharacter.isDigit()) {
+            currentOperand = currentOperand * 10 + currentCharacter.digitValue();
             insideOperand = true;
             continue;
         }
@@ -67,16 +72,14 @@ long long evalIntegerExpr(string expr) {
             currentOperand = 0;
             insideOperand = false;
         }
-        map<char, int>::const_iterator currentOutIterator = outOfStackPriority.find(currentCharacter);
-        if (currentOutIterator == outOfStackPriority.end()) {
-            char errMsg[] = "Invalid token \'?\'";
-            errMsg[15] = currentCharacter;
-            throw logic_error(errMsg);
+        map<QChar, int>::const_iterator currentOutIterator = outOfStackPriority.find(currentCharacter);
+        if (currentOutIterator == outOfStackPriority.end()) { // TODO: Delete the braces
+            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(currentCharacter) + "\'");
         }
         if (!operators.empty()) {
-            map<char, int>::const_iterator currentInIterator = inStackPriority.find(operators.top());
+            map<QChar, int>::const_iterator currentInIterator = inStackPriority.find(operators.top());
             while (currentOutIterator->second <= currentInIterator->second) {
-                char op = operators.top();
+                QChar op = operators.top();
                 operators.pop();
                 if (op == '(' && currentCharacter == ')')
                     break;
@@ -105,44 +108,41 @@ long long evalIntegerExpr(string expr) {
         operands.pop();
         long long a = operands.top();
         operands.pop();
-        char op = operators.top();
+        QChar op = operators.top();
         operands.push(operate(a, op, b));
         operators.pop();
     }
     return operands.top();
 }
 
-void neaten(string& expr) {
-    for (string::iterator iter = expr.begin(); iter != expr.end(); ) {
-        if (isspace(*iter))
-            iter = expr.erase(iter);
+void neaten(QString& expr) {
+    for (QString::size_type i = 0; i < expr.size(); ) { // TODO: Delete this brace, if possible
+        if (expr.at(i).isSpace())
+            expr.remove(i, 1);
         else
-            ++iter;
+            ++i;
     }
     return;
 }
 
-void validate(const string& expr) {
-    if (expr.empty())
-        throw logic_error("Empty expression");
+void validate(const QString& expr) {
+    if (expr.isEmpty())
+        throw CalculationLogicError("Empty expression");
     int bracketValue = 0;
-    if (!isdigit(expr.front())) {
-        char combination[] = " ?";
-        combination[1] = expr.front();
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) {
-            char errMsg[] = "Invalid token \'?\' at this position";
-            errMsg[15] = expr.front();
-            throw logic_error(errMsg);
+    if (!expr.front().isDigit()) {
+        QString combination = " " + static_cast<QString>(expr.front());
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete
+            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\' at this position");
         }
         if (expr.front() == '(')
             ++bracketValue;
         else if (expr.front() == ')')
             --bracketValue;
         if (bracketValue < 0)
-            throw logic_error("Unmatched brackets");
+            throw CalculationLogicError("Unmatched brackets");
     }
-    for (string::const_iterator iter = expr.begin() + 1; iter != expr.end(); ++iter) {
-        if (isdigit(*iter))
+    for (QString::ConstIterator iter = expr.begin() + 1; iter != expr.end(); ++iter) {
+        if (iter->isDigit())
             continue;
         if (*iter == '(')
             ++bracketValue;
@@ -150,34 +150,26 @@ void validate(const string& expr) {
             --bracketValue;
         if (bracketValue < 0)
             throw logic_error("Unmatched brackets");
-        if (isdigit(*(iter - 1)))
+        if ((iter - 1)->isDigit())
             continue;
-        char combination[] = "??";
-        combination[0] = *(iter - 1);
-        combination[1] = *iter;
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) {
-            char errMsg[] = "Invalid operator combination \'??\'";
-            errMsg[30] = *(iter - 1);
-            errMsg[31] = *iter;
-            throw logic_error(errMsg);
+        QString combination = static_cast<QString>(*(iter - 1)) + *iter;
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete this
+            throw CalculationLogicError("Invalid operator combination \'" + combination + "\'");
         }
     }
-    if (!isdigit(expr.back())) {
-        char combination[] = "? ";
-        combination[0] = expr.back();
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) {
-            char errMsg[] = "Invalid token \'?\' at this position";
-            errMsg[15] = expr.back();
-            throw logic_error(errMsg);
+    if (!expr.back().isDigit()) {
+        QString combination = static_cast<QString>(expr.back()) + " ";
+        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end()) { // TODO: Delete this as well
+            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[0]) + "\' at this position");
         }
     }
     if (bracketValue != 0)
-        throw logic_error("Unmatched brackets");
+        throw CalculationLogicError("Unmatched brackets");
     return;
 }
 
-long long operate(long long a, char op, long long b) {
-    switch (op) {
+long long operate(long long a, QChar op, long long b) {
+    switch (op.toLatin1()) {
     case '+':
         return a + b;
     case '-':
@@ -186,16 +178,14 @@ long long operate(long long a, char op, long long b) {
         return a * b;
     case '/':
         if (b == 0)
-            throw logic_error("Cannot divide by 0");
+            throw CalculationLogicError("Cannot divide by 0");
         return a / b;
     case '%':
         if (b == 0)
-            throw logic_error("Cannot divide by 0");
+            throw CalculationLogicError("Cannot divide by 0");
         return a % b;
     default:
-        char errMsg[] = "Unexpected operator \'?\' in calculation";
-        errMsg[21] = op;
-        throw runtime_error(errMsg);
+        throw CalculationRuntimeError("Unexpected operator \'" + static_cast<QString>(op) + "\' in calculation");
     }
 }
 
@@ -203,10 +193,11 @@ long long operate(long long a, char op, long long b) {
 
 void CalculatorController::calculate(QString expression, CalculationResult& res) {
     try {
-        res.result = evalIntegerExpr(expression.toStdString());
+        res.result = evalIntegerExpr(expression);
         res.status = 0;
-    } catch (const exception& e) {
-        res.errorMessage = e.what();
+    } catch (const CalculationException& e) {
+        res.errorMessage = e.description();
         res.status = 1;
+        // qDebug() << "CalculationException: " << e.description() << ", i.e. " << e.what(); // TODO: Delete this
     }
 }
