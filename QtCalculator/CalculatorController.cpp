@@ -206,7 +206,7 @@ void CalculatorController::calculate(QString expression, CalculationResult& res)
         res.result = evalIntegerExpr(expression.toStdString());
         res.status = 0;
     } catch (const exception& e) {
-        res.status = 1;
         res.errorMessage = e.what();
+        res.status = 1;
     }
 }
