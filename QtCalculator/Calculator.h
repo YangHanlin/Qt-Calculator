@@ -63,4 +63,5 @@ private:
 
     void initKeyToButton(QMap<int, QPushButton*>& target);
     void expressionInsert(QString s);
+    void clearStatus();
 };
