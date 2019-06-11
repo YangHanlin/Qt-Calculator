@@ -136,12 +136,12 @@ const QString& validate(const QString& expr) {
             throw CalculationLogicError("Invalid token n");
         else
             addition = *iter;
-        if (validCombinations.find(combination.remove(0, 1).append(addition)) == validCombinations.end())
+        if (!validCombinations.contains(combination.remove(0, 1).append(addition)))
             throw CalculationLogicError("Invalid combination \'" + combination + "\'");
     }
     if (bracketValue != 0)
         throw CalculationLogicError("Unmatched brackets");
-    if (validCombinations.find(combination.remove(0, 1).append(' ')) == validCombinations.end())
+    if (!validCombinations.contains(combination.remove(0, 1).append(' ')))
         throw CalculationLogicError("Invalid combination \'" + combination + "\'");
     return expr;
 }
