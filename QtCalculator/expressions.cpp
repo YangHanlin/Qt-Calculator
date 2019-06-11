@@ -26,23 +26,25 @@ const QMap<QChar, int> outOfStackPriority = {
 };
 
 const QSet<QString> validCombinations = {
-    " (", " +", " -", " !", " 0",
-    "+(", "++", "+-", "+!", "+0",
-    "-(", "-+", "--", "-!", "-0",
-    "*(", "*+", "*-", "*!", "*0",
-    "/(", "/+", "/-", "/!", "/0",
-    "%(", "%+", "%-", "%!", "%0",
-    "&(", "&+", "&-", "&!", "&0",
-    "|(", "|+", "|-", "|!", "|0",
-    "!(", "!+", "!-", "!!", "!0",
-    "((", "(+", "(-", "(!", "(0",
+    " (", " +", " -", " !", " n", "  ",
+    "+(", "++", "+-", "+!", "+n",
+    "-(", "-+", "--", "-!", "-n",
+    "*(", "*+", "*-", "*!", "*n",
+    "/(", "/+", "/-", "/!", "/n",
+    "%(", "%+", "%-", "%!", "%n",
+    "&(", "&+", "&-", "&!", "&n",
+    "|(", "|+", "|-", "|!", "|n",
+    "!(", "!+", "!-", "!!", "!n",
+    "((", "(+", "(-", "(!", "(n",
     ")+", ")-", ")*", ")/", ")%", "))", ") ",
-    "0+", "0-", "0*", "0/", "0%", "0&", "0|", "0!", "0)", "0 "
+    "n+", "n-", "n*", "n/", "n%", "n&", "n|", "n!", "n)", "n "
 };
 
 long long operate(long long a, QChar op, long long b);
 
 long long evalIntegerExpr(QString expr) {
+    if (expr.isEmpty()) // not elegant?
+        return 0LL;
     QStack<QChar> operators;
     QStack<long long> operands;
     long long currentOperand = 0;
@@ -117,42 +119,29 @@ QString& neaten(QString& expr) {
 }
 
 const QString& validate(const QString& expr) {
-    if (expr.isEmpty())
-        throw CalculationLogicError("Empty expression");
     int bracketValue = 0;
-    if (!expr.front().isDigit()) {
-        QString combination = " " + static_cast<QString>(expr.front());
-        if (validCombinations.find(combination) == validCombinations.end())
-            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\' at this position");
-        if (expr.front() == '(')
-            ++bracketValue;
-        else if (expr.front() == ')')
-            --bracketValue;
-        if (bracketValue < 0)
-            throw CalculationLogicError("Unmatched brackets");
-    }
-    for (QString::ConstIterator iter = expr.begin() + 1; iter != expr.end(); ++iter) {
-        if (iter->isDigit())
-            continue;
+    QString combination = "  ";
+    for (QString::ConstIterator iter = expr.begin(); iter != expr.end(); ++iter) {
         if (*iter == '(')
             ++bracketValue;
         else if (*iter == ')')
             --bracketValue;
         if (bracketValue < 0)
             throw CalculationLogicError("Unmatched brackets");
-        if ((iter - 1)->isDigit())
-            continue;
-        QString combination = static_cast<QString>(*(iter - 1)) + *iter;
-        if (validCombinations.find(combination) == validCombinations.end())
-            throw CalculationLogicError("Invalid operator combination \'" + combination + "\'");
-    }
-    if (!expr.back().isDigit()) {
-        QString combination = static_cast<QString>(expr.back()) + " ";
-        if (validCombinations.find(combination) == validCombinations.end())
-            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[0]) + "\' at this position");
+        QChar addition = '\0';
+        if (iter->isDigit())
+            addition = 'n';
+        else if (*iter == 'n')
+            throw CalculationLogicError("Invalid token n");
+        else
+            addition = *iter;
+        if (validCombinations.find(combination.remove(0, 1).append(addition)) == validCombinations.end())
+            throw CalculationLogicError("Invalid combination \'" + combination + "\'");
     }
     if (bracketValue != 0)
         throw CalculationLogicError("Unmatched brackets");
+    if (validCombinations.find(combination.remove(0, 1).append(' ')) == validCombinations.end())
+        throw CalculationLogicError("Invalid combination \'" + combination + "\'");
     return expr;
 }
 
