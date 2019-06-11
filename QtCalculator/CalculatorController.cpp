@@ -8,8 +8,14 @@ void CalculatorController::calculate(QString expression, CalculationResult& res)
     try {
         res.result = evalIntegerExpr(validate(neaten(expression)));
         res.status = 0;
-    } catch (const CalculationException& e) {
+    } catch (const CalculationLogicError& e) {
         res.errorMessage = "Please check your expression: " + e.description();
         res.status = 1;
+    } catch (const CalculationRuntimeError& e) {
+        res.errorMessage = "Internal error: " + e.description();
+        res.status = 2;
+    } catch (const CalculationException& e) {
+        res.errorMessage = "Unknown error: " + e.description();
+        res.status = 3;
     }
 }
