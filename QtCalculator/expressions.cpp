@@ -48,7 +48,7 @@ long long evalIntegerExpr(QString expr) {
     QStack<QChar> operators;
     QStack<long long> operands;
     long long currentOperand = 0;
-    bool insideOperand = false;
+    bool insideOperand = false, rightAssociative = false;
     QChar lastOperator = '\0';
     for (QString::Iterator iter = expr.begin(); iter != expr.end(); ++iter) {
         QChar currentCharacter = *iter;
@@ -60,6 +60,7 @@ long long evalIntegerExpr(QString expr) {
         if (currentCharacter != '(' && lastOperator != ')') {
             operands.push(currentOperand);
             currentOperand = 0;
+            rightAssociative = !insideOperand; // because (here) unary operators are all left-associative operators (and vice versa)
             insideOperand = false;
         }
         QMap<QChar, int>::ConstIterator currentOutIterator = outOfStackPriority.find(currentCharacter);
@@ -67,7 +68,7 @@ long long evalIntegerExpr(QString expr) {
             throw CalculationRuntimeError("Unexpected token \'" + static_cast<QString>(currentCharacter) + "\'");
         if (!operators.empty()) {
             QMap<QChar, int>::ConstIterator currentInIterator = inStackPriority.find(operators.top());
-            while (currentOutIterator.value() <= currentInIterator.value()) {
+            while (currentOutIterator.value() < currentInIterator.value() || (currentOutIterator.value() == currentInIterator.value() && !rightAssociative)) {
                 QChar op = operators.top();
                 operators.pop();
                 if (op == '(' && currentCharacter == ')')
