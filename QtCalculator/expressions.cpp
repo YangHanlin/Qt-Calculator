@@ -64,7 +64,7 @@ long long evalIntegerExpr(QString expr) {
         }
         QMap<QChar, int>::ConstIterator currentOutIterator = outOfStackPriority.find(currentCharacter);
         if (currentOutIterator == outOfStackPriority.end())
-            throw CalculationLogicError("Invalid token \'" + static_cast<QString>(currentCharacter) + "\'");
+            throw CalculationRuntimeError("Unexpected token \'" + static_cast<QString>(currentCharacter) + "\'");
         if (!operators.empty()) {
             QMap<QChar, int>::ConstIterator currentInIterator = inStackPriority.find(operators.top());
             while (currentOutIterator.value() <= currentInIterator.value()) {
