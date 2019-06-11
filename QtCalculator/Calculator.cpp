@@ -144,10 +144,6 @@ void Calculator::on_opRightBracketButton_clicked() {
 }
 
 void Calculator::on_opEqualButton_clicked() {
-    if (ui.expressionLineEdit->text().isEmpty()) {
-        clearStatus();
-        return;
-    }
     CalculationResult res;
     emit fetchCalculationResult(ui.expressionLineEdit->text(), res);
     if (res.status == 0) {
