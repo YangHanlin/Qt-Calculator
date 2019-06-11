@@ -25,18 +25,19 @@ const QMap<QChar, int> outOfStackPriority = {
     {'(', 6}, {')', 0}
 };
 
-const QSet<QString> validOperatorCombinations = {
-    " (", " +", " -", " !",
-    "+(",
-    "-(",
-    "*(",
-    "/(",
-    "%(",
-    "&(",
-    "|(",
-    "!("
-    "()", "((", "(+", "(-", "(!",
-    ")+", ")-", ")*", ")/", ")%", "))", ") "
+const QSet<QString> validCombinations = {
+    " (", " +", " -", " !", " 0",
+    "+(", "++", "+-", "+!", "+0",
+    "-(", "-+", "--", "-!", "-0",
+    "*(", "*+", "*-", "*!", "*0",
+    "/(", "/+", "/-", "/!", "/0",
+    "%(", "%+", "%-", "%!", "%0",
+    "&(", "&+", "&-", "&!", "&0",
+    "|(", "|+", "|-", "|!", "|0",
+    "!(", "!+", "!-", "!!", "!0",
+    "((", "(+", "(-", "(!", "(0",
+    ")+", ")-", ")*", ")/", ")%", "))", ") ",
+    "0+", "0-", "0*", "0/", "0%", "0&", "0|", "0!", "0)"
 };
 
 long long operate(long long a, QChar op, long long b);
@@ -121,7 +122,7 @@ const QString& validate(const QString& expr) {
     int bracketValue = 0;
     if (!expr.front().isDigit()) {
         QString combination = " " + static_cast<QString>(expr.front());
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
+        if (validCombinations.find(combination) == validCombinations.end())
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\' at this position");
         if (expr.front() == '(')
             ++bracketValue;
@@ -142,12 +143,12 @@ const QString& validate(const QString& expr) {
         if ((iter - 1)->isDigit())
             continue;
         QString combination = static_cast<QString>(*(iter - 1)) + *iter;
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
+        if (validCombinations.find(combination) == validCombinations.end())
             throw CalculationLogicError("Invalid operator combination \'" + combination + "\'");
     }
     if (!expr.back().isDigit()) {
         QString combination = static_cast<QString>(expr.back()) + " ";
-        if (validOperatorCombinations.find(combination) == validOperatorCombinations.end())
+        if (validCombinations.find(combination) == validCombinations.end())
             throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[0]) + "\' at this position");
     }
     if (bracketValue != 0)
