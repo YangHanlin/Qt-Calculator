@@ -40,6 +40,20 @@ const QSet<QString> validCombinations = {
     "n+", "n-", "n*", "n/", "n%", "n&", "n|", "n!", "n)", "nn", "n "
 };
 
+const QMap<QChar, QString> friendlyDescriptions = {
+    {'+', "operators"},
+    {'-', "operators"},
+    {'*', "operators"},
+    {'/', "operators"},
+    {'%', "operators"},
+    {'&', "operators"},
+    {'|', "operators"},
+    {'!', "operators"},
+    {'(', "brackets"},
+    {')', "brackets"},
+    {'n', "numbers"}
+};
+
 long long operate(long long a, QChar op, long long b);
 
 long long evalIntegerExpr(QString expr) {
@@ -133,16 +147,27 @@ const QString& validate(const QString& expr) {
         if (iter->isDigit())
             addition = 'n';
         else if (*iter == 'n')
-            throw CalculationLogicError("Invalid token n");
+            throw CalculationLogicError("Invalid token \'n\'");
         else
             addition = *iter;
-        if (!validCombinations.contains(combination.remove(0, 1).append(addition)))
-            throw CalculationLogicError("Invalid combination \'" + combination + "\'");
+        if (!validCombinations.contains(combination.remove(0, 1).append(addition))) {
+            QMap<QChar, QString>::ConstIterator foundIter0 = friendlyDescriptions.find(combination[0]);
+            if (foundIter0 == friendlyDescriptions.end()) {
+                if (combination[0] == ' ')
+                    throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\' at the beginning");
+                else
+                    throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[0]) + "\'");
+            }
+            QMap<QChar, QString>::ConstIterator foundIter1 = friendlyDescriptions.find(combination[1]);
+            if (foundIter1 == friendlyDescriptions.end())
+                throw CalculationLogicError("Invalid token \'" + static_cast<QString>(combination[1]) + "\'");
+            throw CalculationLogicError("Invalid combination of " + foundIter0.value() + " and " + foundIter1.value());
+        }
     }
     if (bracketValue != 0)
         throw CalculationLogicError("Unmatched brackets");
     if (!validCombinations.contains(combination.remove(0, 1).append(' ')))
-        throw CalculationLogicError("Invalid combination \'" + combination + "\'");
+        throw CalculationLogicError("Invalid token \'" + combination[0] + "\' in the end");
     return expr;
 }
 
