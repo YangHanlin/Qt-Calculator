@@ -2,6 +2,7 @@
 #include "util.h"
 #include "CalculationResult.h"
 
+#include <QPoint>
 #include <QMouseEvent>
 #include <QStyle>
 #include <QMap>
@@ -10,7 +11,6 @@
 // #include <QDebug>
 
 QPoint originalPos;
-QMap<int, QPushButton*> keyToButton;
 
 Calculator::Calculator(QWidget* parent)
     : QMainWindow(parent),
