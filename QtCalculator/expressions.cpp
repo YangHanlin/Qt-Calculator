@@ -37,7 +37,7 @@ const QSet<QString> validCombinations = {
     "!(", "!+", "!-", "!!", "!n",
     "((", "(+", "(-", "(!", "(n",
     ")+", ")-", ")*", ")/", ")%", "))", ") ",
-    "n+", "n-", "n*", "n/", "n%", "n&", "n|", "n!", "n)", "n "
+    "n+", "n-", "n*", "n/", "n%", "n&", "n|", "n!", "n)", "nn", "n "
 };
 
 long long operate(long long a, QChar op, long long b);
