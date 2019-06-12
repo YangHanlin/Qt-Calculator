@@ -5,7 +5,7 @@
 
 const QString defaultAuthor = "Yang Hanlin";
 const QString defaultProgramName = "Calculator";
-const QString defaultProgramVersion = "0.9-alpha";
+const QString defaultProgramVersion = "1.0-rc1";
 
 CalculatorSettings::CalculatorSettings()
     : author(defaultAuthor),
