@@ -24,6 +24,10 @@
   <property name="windowTitle">
    <string>Loading...</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Calculator.qrc">
+    <normaloff>:/Calculator/Resources/QtCalculator-icon.svg</normaloff>:/Calculator/Resources/QtCalculator-icon.svg</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">
 /*

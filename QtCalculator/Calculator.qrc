@@ -1,4 +1,6 @@
 <RCC>
-    <qresource prefix="Calculator">
+    <qresource prefix="/Calculator">
+        <file>Resources/QtCalculator-icon.ico</file>
+        <file>Resources/QtCalculator-icon.svg</file>
     </qresource>
 </RCC>
