@@ -23,6 +23,7 @@ Calculator::Calculator(QWidget* parent)
 
 void Calculator::initWidgets() {
     emit fetchCaptionStr(captionStr);
+    setWindowTitle(captionStr);
     ui.captionLabel->setText(captionStr);
     ui.actionClearButton->click();
     emit fetchAboutInfoStr(aboutInfoStr);

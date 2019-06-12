@@ -22,7 +22,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Calculator</string>
+   <string>Loading...</string>
   </property>
   <property name="styleSheet">
    <string notr="true">/*
