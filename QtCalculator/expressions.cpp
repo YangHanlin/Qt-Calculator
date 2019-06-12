@@ -74,7 +74,7 @@ long long evalIntegerExpr(QString expr) {
         if (currentCharacter != '(' && lastOperator != ')') {
             operands.push(currentOperand);
             currentOperand = 0;
-            rightAssociative = !insideOperand; // because (here) unary operators are all left-associative operators (and vice versa)
+            rightAssociative = !insideOperand; // because (here) unary operators are all left-associative operators and vice versa
             insideOperand = false;
         }
         QMap<QChar, int>::ConstIterator currentOutIterator = outOfStackPriority.find(currentCharacter);
