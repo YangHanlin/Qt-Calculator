@@ -25,7 +25,8 @@
    <string>Loading...</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/*
+   <string notr="true">
+/*
  * The whole stylesheet is defined here, rather than in
  * every control.
  */
