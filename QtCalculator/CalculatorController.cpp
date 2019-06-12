@@ -9,7 +9,7 @@ void CalculatorController::calculate(QString expression, CalculationResult& res)
         res.result = evalIntegerExpr(validate(neaten(expression)));
         res.status = 0;
     } catch (const CalculationLogicError& e) {
-        res.errorMessage = "Please check your expression: " + e.description();
+        res.errorMessage = "Check your expression: " + e.description();
         res.status = 1;
     } catch (const CalculationRuntimeError& e) {
         res.errorMessage = "Internal error: " + e.description();
