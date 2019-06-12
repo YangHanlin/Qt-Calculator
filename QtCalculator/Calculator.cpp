@@ -2,6 +2,7 @@
 #include "util.h"
 #include "CalculationResult.h"
 
+#include <QPoint>
 #include <QMouseEvent>
 #include <QStyle>
 #include <QMap>
@@ -10,7 +11,6 @@
 // #include <QDebug>
 
 QPoint originalPos;
-QMap<int, QPushButton*> keyToButton;
 
 Calculator::Calculator(QWidget* parent)
     : QMainWindow(parent),
@@ -24,7 +24,7 @@ Calculator::Calculator(QWidget* parent)
 void Calculator::initWidgets() {
     emit fetchCaptionStr(captionStr);
     ui.captionLabel->setText(captionStr);
-    on_actionClearButton_clicked();
+    ui.actionClearButton->click();
     emit fetchAboutInfoStr(aboutInfoStr);
     ui.messageLabel->setText(aboutInfoStr);
 }
@@ -144,8 +144,6 @@ void Calculator::on_opRightBracketButton_clicked() {
 }
 
 void Calculator::on_opEqualButton_clicked() {
-    if (ui.expressionLineEdit->text().isEmpty())
-        return;
     CalculationResult res;
     emit fetchCalculationResult(ui.expressionLineEdit->text(), res);
     if (res.status == 0) {
@@ -166,16 +164,13 @@ void Calculator::on_actionBkspButton_clicked() {
 }
 
 void Calculator::on_actionClearButton_clicked() {
+    clearStatus();
     ui.expressionLineEdit->setText("");
-    ui.resultLabel->setText("0");
 }
 
 void Calculator::on_expressionLineEdit_textChanged(const QString& text) {
-    if (status != 0) {
-        ui.resultLabel->setText("0");
-        ui.messageLabel->setText(aboutInfoStr);
-        status = 0;
-    }
+    if (status != 0)
+        clearStatus();
     int currentCursorPosition = ui.expressionLineEdit->cursorPosition();
     if (currentCursorPosition > 0 && ui.expressionLineEdit->text().at(currentCursorPosition - 1) == '=') {
         ui.expressionLineEdit->setText(ui.expressionLineEdit->text().remove(currentCursorPosition - 1, 1));
@@ -215,5 +210,11 @@ void Calculator::expressionInsert(QString s) {
     int currentCursorPosition = ui.expressionLineEdit->cursorPosition();
     ui.expressionLineEdit->setText(ui.expressionLineEdit->text().insert(currentCursorPosition, s));
     ui.expressionLineEdit->setCursorPosition(currentCursorPosition + s.length());
+}
+
+void Calculator::clearStatus() {
+    ui.resultLabel->setText("0");
+    ui.messageLabel->setText(aboutInfoStr);
+    status = 0;
 }
  

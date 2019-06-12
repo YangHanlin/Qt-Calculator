@@ -53,6 +53,7 @@ private:
     QString aboutInfoStr;
     QString captionStr;
     QPushButton* lastPressedButton;
+    QMap<int, QPushButton*> keyToButton;
     int status;
 
     void mousePressEvent(QMouseEvent* event);
@@ -62,4 +63,5 @@ private:
 
     void initKeyToButton(QMap<int, QPushButton*>& target);
     void expressionInsert(QString s);
+    void clearStatus();
 };
