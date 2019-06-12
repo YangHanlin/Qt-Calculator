@@ -7,6 +7,7 @@
 #include <QObject>
 
 int main(int argc, char *argv[]) {
+    QCoreApplication::addLibraryPath("./");
 	QApplication application(argc, argv);
 	Calculator calculator;
     CalculatorSettings calculatorSettings;
