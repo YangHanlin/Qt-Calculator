@@ -3,9 +3,9 @@
 #include <QString>
 #include <QDateTime>
 
-const QString defaultAuthor = "Yang Hanlin";
+const QString defaultAuthor = "Author of Calculator";
 const QString defaultProgramName = "Calculator";
-const QString defaultProgramVersion = "1.0-rc2";
+const QString defaultProgramVersion = "1.0";
 
 CalculatorSettings::CalculatorSettings()
     : author(defaultAuthor),
