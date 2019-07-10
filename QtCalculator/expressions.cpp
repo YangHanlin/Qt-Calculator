@@ -9,8 +9,6 @@
 #include <QSet>
 #include <QStack>
 
-#include <QDebug> // TODO: Delete this on release
-
 const QMap<QChar, int> inStackPriority = {
     {'+', 3}, {'-', 3},
     {'*', 4}, {'/', 4}, {'%', 4},

@@ -8,8 +8,6 @@
 #include <QMap>
 #include <QPushButton>
 
-// #include <QDebug>
-
 QPoint originalPos;
 
 Calculator::Calculator(QWidget* parent)
