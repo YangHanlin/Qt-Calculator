@@ -6,7 +6,7 @@
 #include <QString>
 
 class CalculatorController : public QObject {
-
+    
     Q_OBJECT
 
 public slots:

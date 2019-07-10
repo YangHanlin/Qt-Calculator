@@ -14,8 +14,8 @@ Calculator::Calculator(QWidget* parent)
     : QMainWindow(parent),
       lastPressedButton(Q_NULLPTR),
       status(0) {
-	ui.setupUi(this);
-	QWidget::setWindowFlags(Qt::FramelessWindowHint);
+    ui.setupUi(this);
+    QWidget::setWindowFlags(Qt::FramelessWindowHint);
     initKeyToButton(keyToButton);
 }
 
@@ -216,4 +216,3 @@ void Calculator::clearStatus() {
     ui.messageLabel->setText(aboutInfoStr);
     status = 0;
 }
- 

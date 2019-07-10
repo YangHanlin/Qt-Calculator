@@ -4,7 +4,7 @@
 #include <QString>
 
 class CalculatorSettings : public QObject {
-
+    
     Q_OBJECT
 
 public:

@@ -8,8 +8,8 @@
 
 int main(int argc, char *argv[]) {
     QCoreApplication::addLibraryPath("./");
-	QApplication application(argc, argv);
-	Calculator calculator;
+    QApplication application(argc, argv);
+    Calculator calculator;
     CalculatorSettings calculatorSettings;
     CalculatorController calculatorController;
     QObject::connect(&calculator, SIGNAL(fetchCaptionStr(QString&)),
@@ -19,6 +19,6 @@ int main(int argc, char *argv[]) {
     QObject::connect(&calculator, SIGNAL(fetchCalculationResult(QString, CalculationResult&)),
                      &calculatorController, SLOT(calculate(QString, CalculationResult&)));
     calculator.initWidgets();
-	calculator.show();
-	return application.exec();
+    calculator.show();
+    return application.exec();
 }

@@ -9,18 +9,18 @@
 #include "ui_Calculator.h"
 
 class Calculator : public QMainWindow {
-
-	Q_OBJECT
+    
+    Q_OBJECT
 
 public:
-	Calculator(QWidget *parent = Q_NULLPTR);
+    Calculator(QWidget *parent = Q_NULLPTR);
     void initWidgets();
-
+    
 signals:
     void fetchCaptionStr(QString& target);
     void fetchAboutInfoStr(QString& target);
     void fetchCalculationResult(QString expression, CalculationResult& res);
-
+    
 private slots:
     void on_closeButton_clicked();
     void on_minimizeButton_clicked();
@@ -47,20 +47,20 @@ private slots:
     void on_actionBkspButton_clicked();
     void on_actionClearButton_clicked();
     void on_expressionLineEdit_textChanged(const QString& text);
-
+    
 private:
-	Ui::CalculatorClass ui;
+    Ui::CalculatorClass ui;
     QString aboutInfoStr;
     QString captionStr;
     QPushButton* lastPressedButton;
     QMap<int, QPushButton*> keyToButton;
     int status;
-
+    
     void mousePressEvent(QMouseEvent* event);
     void mouseMoveEvent(QMouseEvent* event);
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
-
+    
     void initKeyToButton(QMap<int, QPushButton*>& target);
     void expressionInsert(QString s);
     void clearStatus();
