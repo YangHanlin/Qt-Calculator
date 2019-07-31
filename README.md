@@ -1,5 +1,7 @@
 # Qt-Calculator
 
+<img src="assets/screenshot.png" style="text-align: center"></img>
+
 This is a simple calculator based on Qt.
 
 > The first release of Calculator (`v1.0`) has released. [Try it out!](https://github.com/YangHanlin/Qt-Calculator/releases/tag/v1.0)
