@@ -1,6 +1,6 @@
 # Qt-Calculator
 
-<div style="text-align: center">![Screenshot](assets/screenshot.png)</div>
+<div style="text-align: center"><img src="assets/screenshot.png" alt="Screenshot"></img></div>
 
 This is a simple calculator based on Qt.
 
